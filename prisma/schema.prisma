@@ -19,7 +19,7 @@ model Route {
   duration    Float
   directions  Json
   created_at  DateTime @default(now())
-  updated_at  DateTime
+  updated_at  DateTime @updatedAt
 }
 
 type Place {
