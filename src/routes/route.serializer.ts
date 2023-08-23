@@ -5,7 +5,7 @@ import { Route } from "@prisma/client";
 export class RouteSerializer implements Omit<Route, 'directions'> {
     id: string;
     name: string;
-    source: { name: string; location: { lat: number; lng: number; } };
+    origin: { name: string; location: { lat: number; lng: number; } };
     destination: { name: string; location: { lat: number; lng: number; } };
     distance: number;
     duration: number;
@@ -16,7 +16,7 @@ export class RouteSerializer implements Omit<Route, 'directions'> {
     constructor(route: Route) {
         this.id = route.id;
         this.name = route.name;
-        this.source = route.source;
+        this.origin = route.origin;
         this.destination = route.destination;
         this.distance = route.distance;
         this.duration = route.duration;

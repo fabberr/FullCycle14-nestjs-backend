@@ -23,7 +23,7 @@ export class RoutesService {
     return this.prismaService.route.create({
       data: {
         name: createRouteDto.name,
-        source: {
+        origin: {
           name: legs.at(0)?.start_address,
           location: request.origin.location
         },
@@ -58,7 +58,7 @@ export class RoutesService {
       where: { id: id },
       data: {
         name: updateRouteDto.name,
-        source: {
+        origin: {
           name: updateRouteDto.origin_id,
           location: {
             lat: 0,
