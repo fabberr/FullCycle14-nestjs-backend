@@ -3,6 +3,6 @@ import { CreateRouteDto } from './create-route.dto';
 
 export class UpdateRouteDto extends PartialType(CreateRouteDto) {
     name: string;
-    source_id: string;
+    origin_id: string;
     destination_id: string;
 }

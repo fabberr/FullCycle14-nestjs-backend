@@ -2,32 +2,43 @@ import { Injectable } from '@nestjs/common';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
 import { PrismaService } from 'src/prisma/prisma/prisma.service';
+import { DirectionsService } from 'src/maps/directions/directions.service';
 
 @Injectable()
 export class RoutesService {
-  constructor(private prismaService: PrismaService) { }
+  constructor(
+    private prismaService: PrismaService,
+    private directionsService: DirectionsService
+  ) { }
 
-  create(createRouteDto: CreateRouteDto) {
+  async create(createRouteDto: CreateRouteDto) {
+
+    const { request, response } = await this.directionsService.getDirections(
+      createRouteDto.origin_id, 
+      createRouteDto.destination_id
+    );
+    const { available_travel_modes, geocoded_waypoints, routes } = response;
+    const legs = routes.at(0)?.legs ?? [];
+
     return this.prismaService.route.create({
       data: {
         name: createRouteDto.name,
         source: {
-          name: createRouteDto.source_id,
-          location: {
-            lat: 0,
-            lng: 0
-          }
+          name: legs.at(0)?.start_address,
+          location: request.origin.location
         },
         destination: {
-          name: createRouteDto.destination_id,
-          location: {
-            lat: 0,
-            lng: 0
-          }
+          name: legs.at(-1)?.end_address,
+          location: request.destination.location
         },
-        distance: 0,
-        duration: 0,
-        directions: '{}'
+        distance: legs.reduce((acc, currentLeg) => acc + currentLeg?.distance?.value ?? 0, 0),
+        duration: legs.reduce((acc, currentLeg) => acc + currentLeg?.duration?.value ?? 0, 0),
+        directions: JSON.stringify({
+          available_travel_modes,
+          geocoded_waypoints,
+          routes,
+          request
+        })
       }
     });
   }
@@ -37,7 +48,7 @@ export class RoutesService {
   }
 
   findOne(id: string) {
-    return this.prismaService.route.findUnique({
+    return this.prismaService.route.findUniqueOrThrow({
       where: { id: id }
     });
   }
@@ -48,7 +59,7 @@ export class RoutesService {
       data: {
         name: updateRouteDto.name,
         source: {
-          name: updateRouteDto.source_id,
+          name: updateRouteDto.origin_id,
           location: {
             lat: 0,
             lng: 0
