@@ -25,7 +25,7 @@ $ docker-compose build
 ```
 
 Os seguintes comandos devem ser executados de dentro do container.
-Caso não esteja rodando, subir o container com o comando `docker-compose up`.
+Caso não estiver rodando, use o comando `docker-compose up` para subir o container.
 ```bash
 # Entrar no diretório raiz da aplicação
 $ cd /home/node/app
