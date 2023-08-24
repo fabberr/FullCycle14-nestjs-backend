@@ -63,7 +63,7 @@ Este arquivo deve ser armazenado apenas localmente e não deve ser subido para r
 $ cp .env.example .env
 ```
 
-## Rodando a aplicação
+## Rodando a Aplicação
 
 ```bash
 # Desenvolvimento
