@@ -25,7 +25,7 @@ $ docker-compose build
 ```
 
 Os seguintes comandos devem ser executados de dentro do container.
-Caso não estiver rodando, use o comando `docker-compose up` para subir o container.
+Caso ainda não estiver rodando, use o comando `docker-compose up` para subir o container.
 ```bash
 # Entrar no diretório raiz da aplicação
 $ cd /home/node/app
@@ -53,7 +53,8 @@ Esta aplicação faz integração com APIs do Google Maps, e portanto é necess�
    - Obs.: É recomendado acessar/visualizar/copiar a chave somente através do próprio Google Cloud console (menu `APIs & Services > Credentials`). ***Não salve esta chave localmente na sua máquina ou em outros serviçõs de cloud.***
 
 ### Variáveis de Ambiente
-Após criar sua chave de API do Google, crie um arquivo chamado `.env` na raiz do repositório (utilize o arquivo `.env.example` como base) e popule a variável de ambiente `GOOGLE_API_KEY` com a chave gerada. Popule também a variável `DATABASE_URL` com a [string de conexão do MongoDB](https://www.mongodb.com/docs/manual/reference/connection-string/#standard-connection-string-format).
+Após criar sua chave de API do Google, crie um arquivo chamado `.env` na raiz do repositório (utilize o arquivo `.env.example` como base) e popule a variável de ambiente `GOOGLE_API_KEY` com a chave gerada.
+Popule também a variável `DATABASE_URL` com a [string de conexão do MongoDB](https://www.mongodb.com/docs/manual/reference/connection-string/#standard-connection-string-format).
 
 Este arquivo deve ser armazenado apenas localmente e não deve ser subido para repositórios remotos (não remover regra para arquivos de extensão`.env` do `.gitignore`) para evitar que a sua chave de API do Google seja exposta.
 
