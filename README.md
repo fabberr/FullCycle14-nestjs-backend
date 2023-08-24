@@ -8,6 +8,7 @@ Aplicação back-end escrita para o evento [Imersão Full Stack && Full Cycle 14
 - [Nest](https://nestjs.com)
 - [Prisma](https://www.prisma.io)
 - [MongoDB](https://www.mongodb.com)
+- Integração com a [API do Google Maps](https://console.cloud.google.com)
 
 ## Instalação
 
