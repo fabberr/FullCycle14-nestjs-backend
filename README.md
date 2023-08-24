@@ -57,7 +57,7 @@ Esta aplicação faz integração com APIs do Google Maps, e portanto é necess�
 ### Variáveis de Ambiente
 Após criar sua chave de API do Google, crie um arquivo chamado `.env` na raiz do repositório (utilize o arquivo `.env.example` como base) e popule a variável de ambiente `GOOGLE_API_KEY` com a chave gerada. Popule também a variável `DATABASE_URL` com a [string de conexão do MongoDB](https://www.mongodb.com/docs/manual/reference/connection-string/#standard-connection-string-format).
 
-Este arquivo deve ser armazenado apenas localmente e não deve ser subido para repositórios remotos (não remover regra para arquivos de extensão`.env` do `.gitignore`) para evitar que a sua chave de API do Google e senha do usuário root do MongoDB vazem.
+Este arquivo deve ser armazenado apenas localmente e não deve ser subido para repositórios remotos (não remover regra para arquivos de extensão`.env` do `.gitignore`) para evitar que a sua chave de API do Google e senha do usuário root do MongoDB sejam expostas.
 
 ```bash
 # Copiar o arquivo .env base
