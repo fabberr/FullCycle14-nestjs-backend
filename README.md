@@ -40,7 +40,7 @@ $ npx prisma generate
 ```
 
 ### Google API Key
-Esta aplicação faz integração com APIs do Google Maps, é necessário gerar uma Chave de API (gratuita) pelo [Google Cloud console](https://console.cloud.google.com).
+Esta aplicação faz integração com APIs do Google Maps, e portanto é necessário gerar uma Chave de API (gratuita) através do [Google Cloud console](https://console.cloud.google.com).
 1. Entre com uma conta do Google
    - Obs.: Uma vez logado, você tem acesso ao trial por 90 dias. Você ***NÃO*** será faturado automaticamento ao final do trial.
 3. Navegue até o menu `APIs & Services`
