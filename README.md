@@ -33,7 +33,7 @@ $ cd /home/node/app
 # Instalar as dependências do projeto
 $ npm install
 
-# Gerar Mapeamento Entidade-Relacional após criar arquivo com as variáveis de ambiente (ver tópicos abaixo)
+# Gerar o client do Prisma
 $ npx prisma generate
 ```
 
