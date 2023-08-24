@@ -39,7 +39,7 @@ $ npm install
 $ npx prisma generate
 ```
 
-## Google API Key
+### Google API Key
 Esta aplicação faz integração com APIs do Google Maps, é necessário gerar uma Chave de API (gratuita) pelo [Google Cloud console](https://console.cloud.google.com).
 1. Entre com uma conta do Google
    - Obs.: Uma vez logado, você tem acesso ao trial por 90 dias. Você ***NÃO*** será faturado automaticamento ao final do trial.
@@ -54,7 +54,7 @@ Esta aplicação faz integração com APIs do Google Maps, é necessário gerar 
 8. Pronto, sua Chave de API foi criada
    - Obs.: É recomendado acessar/visualizar/copiar a chave somente através do próprio Google Cloud console (menu `APIs & Services > Credentials`). ***Não salve esta chave localmente na sua máquina ou em outros serviçõs de cloud.***
 
-## Variáveis de Ambiente
+### Variáveis de Ambiente
 Após criar sua chave de API do Google, crie um arquivo chamado `.env` na raiz do repositório (utilize o arquivo `.env.example` como base) e popule a variável de ambiente `GOOGLE_API_KEY` com a chave gerada. Popule também a variável `DATABASE_URL` com a [string de conexão do MongoDB](https://www.mongodb.com/docs/manual/reference/connection-string/#standard-connection-string-format).
 
 Este arquivo deve ser armazenado apenas localmente e não deve ser subido para repositórios remotos (não remover regra para arquivos de extensão`.env` do `.gitignore`) para evitar que a sua chave de API do Google e senha do usuário root do MongoDB vazem.
