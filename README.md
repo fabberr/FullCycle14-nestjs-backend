@@ -22,7 +22,7 @@ $ git clone https://github.com/fabberr/FullCycle14-nestjs-backend.git nestjs-app
 $ cd nestjs-app
 
 # Gerar o Container Docker da aplicação
-$ docker-compose build
+$ docker compose build
 ```
 
 Os seguintes comandos devem ser executados de dentro do container.
