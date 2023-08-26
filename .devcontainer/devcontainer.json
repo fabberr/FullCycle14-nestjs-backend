@@ -30,7 +30,8 @@
 			"extensions": [
 				"prisma.prisma",
 				"ms-azuretools.vscode-docker",
-				"humao.rest-client"
+				"humao.rest-client",
+				"dbaeumer.vscode-eslint"
 			]
 		}
 	}
