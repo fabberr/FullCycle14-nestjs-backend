@@ -2,13 +2,13 @@
 Aplicação back-end escrita para o evento [Imersão Full Stack && Full Cycle 14](https://archive.is/Xu6mh).
 
 #### Tecnologias/Linguagens utilizadas:
-- [TypeScript](https://www.typescriptlang.org)
 - [Docker](https://www.docker.com)
+- [TypeScript](https://www.typescriptlang.org)
 - [Node.js](https://nodejs.org/en)
-- [Nest](https://nestjs.com)
+- [NestJS](https://nestjs.com)
 - [Prisma](https://www.prisma.io)
 - [MongoDB](https://www.mongodb.com)
-- Integração com a [API do Google Maps](https://console.cloud.google.com)
+- [Google Maps API](https://console.cloud.google.com)
 
 ## Instalação
 
