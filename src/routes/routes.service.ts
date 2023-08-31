@@ -12,12 +12,13 @@ export class RoutesService {
   ) { }
 
   async create(createRouteDto: CreateRouteDto) {
-
-    const { request, response } = await this.directionsService.getDirections(
-      createRouteDto.origin_id, 
-      createRouteDto.destination_id
-    );
-    const { available_travel_modes, geocoded_waypoints, routes } = response;
+    
+    const {
+      request,
+      available_travel_modes,
+      geocoded_waypoints,
+      routes,
+    } = await this.directionsService.getDirections(createRouteDto.origin_id, createRouteDto.destination_id);
     const legs = routes.at(0)?.legs ?? [];
 
     return this.prismaService.route.create({
