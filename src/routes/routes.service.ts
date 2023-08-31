@@ -39,7 +39,7 @@ export class RoutesService {
           geocoded_waypoints,
           routes,
           request
-        })
+        }),
       }
     });
   }
@@ -54,28 +54,35 @@ export class RoutesService {
     });
   }
 
-  update(id: string, updateRouteDto: UpdateRouteDto) {
+  async update(id: string, updateRouteDto: UpdateRouteDto) {
+    const {
+      request,
+      available_travel_modes,
+      geocoded_waypoints,
+      routes,
+    } = await this.directionsService.getDirections(updateRouteDto.origin_id, updateRouteDto.destination_id);
+    const legs = routes.at(0)?.legs ?? [];
+
     return this.prismaService.route.update({
       where: { id: id },
       data: {
         name: updateRouteDto.name,
         origin: {
-          name: updateRouteDto.origin_id,
-          location: {
-            lat: 0,
-            lng: 0
-          }
+          name: legs.at(0)?.start_address,
+          location: request.origin.location
         },
         destination: {
-          name: updateRouteDto.destination_id,
-          location: {
-            lat: 0,
-            lng: 0
-          }
+          name: legs.at(-1)?.end_address,
+          location: request.destination.location
         },
-        distance: 0,
-        duration: 0,
-        directions: '{}'
+        distance: legs.reduce((acc, currentLeg) => acc + currentLeg?.distance?.value ?? 0, 0),
+        duration: legs.reduce((acc, currentLeg) => acc + currentLeg?.duration?.value ?? 0, 0),
+        directions: JSON.stringify({
+          available_travel_modes,
+          geocoded_waypoints,
+          routes,
+          request
+        }),
       }
     });
   }
