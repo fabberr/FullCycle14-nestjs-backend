@@ -9,8 +9,9 @@ export class RoutesController {
   constructor(private readonly routesService: RoutesService) {}
 
   @Post()
-  create(@Body() createRouteDto: CreateRouteDto) {
-    return this.routesService.create(createRouteDto);
+  async create(@Body() createRouteDto: CreateRouteDto) {
+    const route = await this.routesService.create(createRouteDto);
+    return new RouteSerializer(route);
   }
 
   @Get()
@@ -26,12 +27,14 @@ export class RoutesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRouteDto: UpdateRouteDto) {
-    return this.routesService.update(id, updateRouteDto);
+  async update(@Param('id') id: string, @Body() updateRouteDto: UpdateRouteDto) {
+    const route = await this.routesService.update(id, updateRouteDto);
+    return new RouteSerializer(route);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.routesService.remove(id);
+  async remove(@Param('id') id: string) {
+    const route = await this.routesService.remove(id);
+    return new RouteSerializer(route);
   }
 }
