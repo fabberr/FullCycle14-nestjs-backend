@@ -87,4 +87,5 @@ $ npm run start:prod
 ```
 
 Para confirmar que a aplicação está rodando, use um client HTTP para fazer uma requisição `GET` para `http://localhost:3000/`.
+
 Uma coleção de requests pode ser importada para testes da API pelo [Insomnia](https://insomnia.rest) através do arquivo `Insomnia.json`, na raiz do repositório.
